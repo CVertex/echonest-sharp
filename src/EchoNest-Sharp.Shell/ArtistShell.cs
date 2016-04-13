@@ -12,7 +12,7 @@ namespace EchoNest.Shell
             using (ConsoleEx.BeginColorBlock(ConsoleColor.Cyan))
             {
                 Console.WriteLine("=== Artist API ===");
-                Console.WriteLine("1: Biographies");
+                Console.WriteLine("1: Profile");
                 Console.WriteLine("2: Blogs");
                 Console.WriteLine("3: Familiarity");
                 Console.WriteLine("4: Hotttnesss");
@@ -32,7 +32,7 @@ namespace EchoNest.Shell
             switch (keyInfo.Key)
             {
                 case ConsoleKey.D1:
-                    Biographies(session);
+                    Profile(session);
                     break;
                 case ConsoleKey.D2:
                     Blogs(session);
@@ -61,6 +61,50 @@ namespace EchoNest.Shell
                 case ConsoleKey.D0:
                     Suggest(session);
                     break;
+            }
+        }
+        
+        private static ArtistBucket GetAllArtistBucket()
+        {
+            return ArtistBucket.ArtistLocation
+                | ArtistBucket.Biographies
+                | ArtistBucket.Blogs
+                | ArtistBucket.DocCounts
+                | ArtistBucket.Familiarity
+                | ArtistBucket.Hotttnesss
+                | ArtistBucket.Id7digital
+                | ArtistBucket.IdSpotifyWw
+                | ArtistBucket.IdSpotify
+                | ArtistBucket.Images
+                | ArtistBucket.News
+                | ArtistBucket.Reviews
+                | ArtistBucket.Songs
+                | ArtistBucket.Terms
+                | ArtistBucket.Urls
+                | ArtistBucket.Video
+                | ArtistBucket.YearsActive;
+        }
+
+        private static void Profile(EchoNestSession session)
+        {
+            ConsoleEx.WriteLine("=== Profile ===", ConsoleColor.Cyan);
+            ConsoleEx.Write("Query >> ", ConsoleColor.Green);
+            string query = Console.ReadLine();
+
+            ConsoleEx.WriteLine("Fetching..", ConsoleColor.Yellow);
+
+            var result = session.Query<Profile>().Execute(new IdSpace(query), bucket: GetAllArtistBucket());
+
+            if (result.Status.Code == ResponseCode.Success)
+            {
+                ConsoleEx.WriteLine("Name:", ConsoleColor.White);
+                ConsoleEx.WriteLine(result.Artist.Name, ConsoleColor.DarkYellow);
+                ConsoleEx.WriteLine("Hotttness:", ConsoleColor.White);
+                ConsoleEx.WriteLine(result.Artist.Hotttnesss.ToString(), ConsoleColor.DarkYellow);
+            }
+            else
+            {
+                ConsoleEx.WriteLine(result.Status.Message, ConsoleColor.Red);
             }
         }
 

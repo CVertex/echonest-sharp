@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
 
@@ -21,7 +22,7 @@ namespace EchoNest.Artist
         [DataMember(Name = "blogs")]
         public List<BlogItem> Blogs { get; set; }
         [DataMember(Name = "doc_counts")]
-        public int DocCounts { get; set; }
+        public DocCounts DocCounts { get; set; }
         [DataMember(Name = "images")]
         public List<ImageItem> Images { get; set; }
         [DataMember(Name = "songs")]
@@ -33,7 +34,7 @@ namespace EchoNest.Artist
         [DataMember(Name = "terms")]
         public List<TermsItem> Terms { get; set; }
         [DataMember(Name = "urls")]
-        public List<UrlsItem> Urls { get; set; }
+        public UrlsItem Urls { get; set; }
         [DataMember(Name = "video")]
         public List<VideoItem> Videos { get; set; }
         [DataMember(Name = "years_active")]

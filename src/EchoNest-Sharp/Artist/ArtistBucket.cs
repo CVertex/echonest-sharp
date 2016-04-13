@@ -45,6 +45,20 @@ namespace EchoNest.Artist
         [Description("id:facebook")]
         IdFacebook = 262144,
         [Description("artist_location")]
-        ArtistLocation = 524288
+        ArtistLocation = 524288,
+        [Description("id:spotify-WW")]
+        IdSpotifyWw = 1048576,
+        [Description("id:spotify")]
+        IdSpotify = 2097152,
+        [Description("discovery")]
+        Discovery = 4194304,
+        [Description("discovery_rank")]
+        DiscoveryRank = 8388608,
+        [Description("familiarity_rank")]
+        FamiliarityRank = 16777216,
+        [Description("genre")]
+        Genre = 33554432,
+        [Description("hotttnesss_rank")]
+        HotttnesssRank = 67108864
     }
 }
