@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 
 namespace EchoNest.Artist
@@ -15,7 +16,6 @@ namespace EchoNest.Artist
         public ProfileResponse Execute(IdSpace id, ArtistBucket? bucket = null)
         {
             UriQuery query = GetQuery(bucket).Add("id", id);
-
             return Execute<ProfileResponse>(query.ToString());
         }
 
