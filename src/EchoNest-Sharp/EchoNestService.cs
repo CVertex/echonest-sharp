@@ -34,6 +34,7 @@ namespace EchoNest
             where T : class
         {
             url = string.Format(url, arguments);
+            Console.WriteLine(url);
             HttpResponseMessage response = HttpClient.GetAsync(url).Result;
             return GetObject<T>(response);
         }
@@ -42,6 +43,7 @@ namespace EchoNest
             where T : class
         {
             url = string.Format(url, arguments);
+            Console.WriteLine(url);
             return HttpClient.GetAsync(url).ContinueWith(new Func<Task<HttpResponseMessage>, T>(OnExecute<T>));
         }
 
