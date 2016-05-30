@@ -43,5 +43,7 @@ namespace EchoNest.Artist
         public List<ForeignIdItem> ForeignIds { get; set; }
         [DataMember(Name = "artist_location")]
         public ArtistLocation ArtistLocation { get; set; }
+        [DataMember(Name = "genres")]
+        public List<GenreItem> Genres { get; set; }
     }
 }

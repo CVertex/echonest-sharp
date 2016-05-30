@@ -74,6 +74,7 @@
     <Compile Include="Artist\FamiliarityItem.cs" />
     <Compile Include="Artist\FamiliarityResponse.cs" />
     <Compile Include="Artist\ForeignIdItem.cs" />
+    <Compile Include="Artist\GenreItem.cs" />
     <Compile Include="Artist\Hotttnesss.cs" />
     <Compile Include="Artist\HotttnesssItem.cs" />
     <Compile Include="Artist\HotttnesssResponse.cs" />
