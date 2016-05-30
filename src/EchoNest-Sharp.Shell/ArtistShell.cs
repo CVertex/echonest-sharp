@@ -66,7 +66,10 @@ namespace EchoNest.Shell
         
         private static ArtistBucket GetAllArtistBucket()
         {
+            return ArtistBucket.Genre;
+            /*
             return ArtistBucket.ArtistLocation
+                
                 | ArtistBucket.Biographies
                 | ArtistBucket.Blogs
                 | ArtistBucket.DocCounts
@@ -74,6 +77,7 @@ namespace EchoNest.Shell
                 | ArtistBucket.Hotttnesss
                 | ArtistBucket.Id7digital
                 | ArtistBucket.IdSpotifyWw
+                | ArtistBucket.Genre
                 | ArtistBucket.IdSpotify
                 | ArtistBucket.Images
                 | ArtistBucket.News
@@ -83,6 +87,7 @@ namespace EchoNest.Shell
                 | ArtistBucket.Urls
                 | ArtistBucket.Video
                 | ArtistBucket.YearsActive;
+                */
         }
 
         private static void Profile(EchoNestSession session)
@@ -101,6 +106,12 @@ namespace EchoNest.Shell
                 ConsoleEx.WriteLine(result.Artist.Name, ConsoleColor.DarkYellow);
                 ConsoleEx.WriteLine("Hotttness:", ConsoleColor.White);
                 ConsoleEx.WriteLine(result.Artist.Hotttnesss.ToString(), ConsoleColor.DarkYellow);
+
+                foreach (var g in result.Artist.Genres)
+                {
+                    ConsoleEx.WriteLine("Genre:", ConsoleColor.White);
+                    ConsoleEx.WriteLine(g.Name.ToString(), ConsoleColor.DarkYellow);
+                }
             }
             else
             {
